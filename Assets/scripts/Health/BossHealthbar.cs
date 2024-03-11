@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BossHealthbar : MonoBehaviour
 {
-    [SerializeField] private Health playerHealth;
+    [SerializeField] private EnemyHealth playerHealth;
     [SerializeField] private UnityEngine.UI.Image totalhealthBar;
     [SerializeField] private UnityEngine.UI.Image currenthealthBar;
 
@@ -29,14 +29,5 @@ public class BossHealthbar : MonoBehaviour
         {
             BossHealthBar.SetActive(false);
         }
-    }
-
-    public void BossIsDead()
-    {
-        if (playerHealth.currentHealth <= 0)
-        {
-            dead = true;
-        }
-        dead = false;
     }
 }

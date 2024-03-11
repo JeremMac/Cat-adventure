@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [Header ("Health")]
     [SerializeField] private float startingHealth;
@@ -19,15 +20,20 @@ public class Health : MonoBehaviour
 
     [Header ("Components")]
     [SerializeField] private Behaviour[] components;
-
-    private GameObject ninjaCat;
+    private GameObject PlayerH;
+    private Health Phealth;
+    private GameObject BossHealthBar;
+    private GameObject NinjaBoss;
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
-        ninjaCat = GameObject.Find("NinjaCatBoss");
+        PlayerH = GameObject.Find("player");
+        Phealth = PlayerH.GetComponent<Health>();
+        BossHealthBar = GameObject.Find("BossHealthBar");
+        NinjaBoss = GameObject.Find("NinjaCatBoss");
     }
 
     public void TakeDamage(float _damage)
@@ -69,10 +75,10 @@ public class Health : MonoBehaviour
 
                 dead = true;
 
-                /*if (dead)
+                if (dead)
                 {
                     GetComponent<LootBag>().InstantiateLoot(transform.position);
-                }*/
+                }
             }
             
         }
@@ -113,5 +119,15 @@ public class Health : MonoBehaviour
             {
                 component.enabled = true;
             }
+    }
+
+    private void Update()
+    {
+        if (Phealth.currentHealth <= 0 && currentHealth > 0)
+        {
+            currentHealth = startingHealth;
+            BossHealthBar.SetActive(false);
+            NinjaBoss.SetActive(false);
+        }
     }
 }
