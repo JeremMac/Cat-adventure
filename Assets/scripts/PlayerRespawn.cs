@@ -5,6 +5,11 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField] private AudioClip checkpointSound; //Sound that we'll play when picking up a new checkpoint
     private Transform currentCheckpoint;//we'll store our last checkpoint here
     private Health playerHealth;
+    public Transform player;
+
+    public Potion healing;
+
+    public int potion = 10;
 
     private void Awake()
     {
@@ -14,6 +19,7 @@ public class PlayerRespawn : MonoBehaviour
     public void Respawn()
     {
         transform.position = currentCheckpoint.position; //move player to checkpointposition
+        healing.potion = 10;
         playerHealth.Respawn(); // Restore player health and reset animation
     }
 
