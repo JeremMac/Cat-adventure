@@ -205,8 +205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: shuriken
-  quantity: 3
+  quantity: 1
   sprite: {fileID: -668364411, guid: 2f62fff052a5a084b954c2ddf87c8995, type: 3}
+  itemDescription: A sharp and dangerous weapon. can be thrown at enemies. Unlocks
+    Shuriken usage. 1 DMG
 --- !u!212 &7624517047124913922
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using System.Collections;
 using Unity.VisualScripting;
-using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.Scripting;
 
@@ -14,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 5f;
+    private float dashingPower = 7f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 

@@ -15,7 +15,7 @@ public class Potion : MonoBehaviour
     public int potion = 10;
     // Start is called before the first frame update
     private void Awake()
-    {
+    { 
         PlayerH = GameObject.Find("player");
         Phealth = PlayerH.GetComponent<Health>();
     }
